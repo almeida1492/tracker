@@ -28,7 +28,7 @@ async function seed() {
     data: {
       date: new Date(),
       task: "E2EV2-XXX",
-      duration: 1000000,
+      duration: 28800,
       notes: "Hello, world!",
       userId: user.id,
     },
