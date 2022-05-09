@@ -26,3 +26,10 @@ npm run setup
 ```
 npm run dev
 ```
+
+- To login, use the following credentials:
+
+```
+Email address: henrique.ribeiro@intesys.it
+Password: intesys
+```
