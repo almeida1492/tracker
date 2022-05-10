@@ -1,7 +1,7 @@
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { EntriesList } from "~/components/entriesList";
+import { EntriesList } from "~/components/EntriesList";
 import { getEntries } from "~/models/entry.server";
 import { requireUserId } from "~/session.server";
 

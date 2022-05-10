@@ -8,7 +8,7 @@ import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import { useState } from "react";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
-import { EntriesList } from "~/components/entriesList";
+import { EntriesList } from "~/components/EntriesList";
 import type { Entry } from "~/models/entry.server";
 import { getEntries } from "~/models/entry.server";
 import { requireUserId } from "~/session.server";
