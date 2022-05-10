@@ -1,8 +1,10 @@
-import { Form, Link, Outlet } from "@remix-run/react";
+import { Form, Link, Outlet, useLocation } from "@remix-run/react";
+import classnames from "classnames";
 import { useUser } from "~/utils";
 
 export default function EntriesPage() {
   const user = useUser();
+  const location = useLocation();
 
   return (
     <div className="flex h-full min-h-screen flex-col">
@@ -22,15 +24,33 @@ export default function EntriesPage() {
       </header>
       <main className="flex h-full bg-white">
         <div className="h-full w-80 border-r bg-gray-50">
-          <Link to="" className="block p-4 text-xl text-blue-500">
+          <Link
+            to=""
+            className={classnames("block p-4 text-xl", {
+              "bg-yellow-500 font-bold text-white":
+                location.pathname === "/entries",
+            })}
+          >
             Home
           </Link>
           <hr />
-          <Link to="calendar" className="block p-4 text-xl text-blue-500">
+          <Link
+            to="calendar"
+            className={classnames("block p-4 text-xl", {
+              "bg-yellow-500 font-bold text-white":
+                location.pathname === "/entries/calendar",
+            })}
+          >
             Calendar
           </Link>
           <hr />
-          <Link to="new" className="block p-4 text-xl font-bold text-blue-500">
+          <Link
+            to="new"
+            className={classnames("block p-4 text-xl", {
+              "bg-yellow-500 font-bold text-white":
+                location.pathname === "/entries/new",
+            })}
+          >
             + New Entry
           </Link>
         </div>

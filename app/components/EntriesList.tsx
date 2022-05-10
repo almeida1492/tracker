@@ -4,9 +4,13 @@ import type { getEntries } from "~/models/entry.server";
 
 interface IProps {
   entries: Awaited<ReturnType<typeof getEntries>>;
+  displayItemDate?: boolean;
 }
 
-export const EntriesList: FC<IProps> = ({ entries }) => {
+export const EntriesList: FC<IProps> = ({
+  entries,
+  displayItemDate = true,
+}) => {
   return (
     <ol>
       {entries.map((entry) => {
@@ -21,8 +25,8 @@ export const EntriesList: FC<IProps> = ({ entries }) => {
             >
               <div className="flex justify-between">
                 <p>
-                  <b>{date.toDateString()}</b> | {entry.task}{" "}
-                  {entry.isSubmitted && "✅"}
+                  {displayItemDate && <b>{date.toDateString()} | </b>}
+                  {entry.task} {entry.isSubmitted && "✅"}
                 </p>
                 <p>⏱ {entry.duration / 3600}h</p>
               </div>

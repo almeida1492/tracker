@@ -1,6 +1,6 @@
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { NavLink, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { EntriesList } from "~/components/entriesList";
 import { getEntries } from "~/models/entry.server";
 import { requireUserId } from "~/session.server";

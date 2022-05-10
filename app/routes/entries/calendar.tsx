@@ -106,14 +106,16 @@ export default function CalendarPage() {
         }}
       />
       <br />
+      <h2 className="text-3xl font-bold">{selectedDate}</h2>
+      <br />
       {data.entriesByDate[selectedDate] ? (
-        <>
-          <h2 className="text-3xl font-bold">Entries</h2>
-          <br />
-          <EntriesList entries={data.entriesByDate[selectedDate].entries} />
-        </>
+        <EntriesList
+          entries={data.entriesByDate[selectedDate].entries}
+          displayItemDate={false}
+        />
       ) : (
         <div className="text-center font-bold">
+          <br />
           No entries for the selected date yet
         </div>
       )}
