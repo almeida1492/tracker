@@ -1,6 +1,7 @@
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { NavLink, useLoaderData } from "@remix-run/react";
+import { EntriesList } from "~/components/entriesList";
 import { getEntries } from "~/models/entry.server";
 import { requireUserId } from "~/session.server";
 
@@ -43,29 +44,7 @@ export default function EntriesIndexPage() {
       {data.entries.length === 0 ? (
         <p className="p-4">No entries yet</p>
       ) : (
-        <ol>
-          {data.entries.map((entry) => {
-            const date = new Date(entry.date);
-            return (
-              <li key={entry.id}>
-                <NavLink
-                  className={({ isActive }) =>
-                    `block border-b p-4 text-xl ${isActive ? "bg-white" : ""}`
-                  }
-                  to={entry.id}
-                >
-                  <div className="flex justify-between">
-                    <p>
-                      <b>{date.toDateString()}</b> | {entry.task}{" "}
-                      {entry.isSubmitted && "✅"}
-                    </p>
-                    <p>⏱ {entry.duration / 3600}h</p>
-                  </div>
-                </NavLink>
-              </li>
-            );
-          })}
-        </ol>
+        <EntriesList entries={data.entries} />
       )}
     </>
   );

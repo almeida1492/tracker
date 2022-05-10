@@ -12,17 +12,20 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-
-import tailwindStylesheetUrl from "./styles/tailwind.css";
+import bigCalendarStylesheetUrl from "react-big-calendar/lib/css/react-big-calendar.css";
 import { getUser } from "./session.server";
+import tailwindStylesheetUrl from "./styles/tailwind.css";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
+  return [
+    { rel: "stylesheet", href: bigCalendarStylesheetUrl },
+    { rel: "stylesheet", href: tailwindStylesheetUrl },
+  ];
 };
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "Remix Notes",
+  title: "Tracker",
   viewport: "width=device-width,initial-scale=1",
 });
 

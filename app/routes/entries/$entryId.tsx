@@ -51,13 +51,26 @@ export default function EntryDetailsPage() {
 
   return (
     <>
-      <h3 className="text-2xl font-bold">
-        {date.toDateString()} {data.entry.isSubmitted && "✅"}
-      </h3>
+      <div className="flex justify-between">
+        <h3 className="text-2xl font-bold">
+          {date.toDateString()} {data.entry.isSubmitted && "✅"}
+        </h3>
+        <Form method="post">
+          <button
+            type="submit"
+            className="  py-2 px-4 hover:bg-blue-600 focus:bg-blue-400"
+            name="_action"
+            value="delete"
+          >
+            🗑
+          </button>
+        </Form>
+      </div>
       <p className="py-6">
         Task: <b>{data.entry.task}</b>
         <br />
         Duration: <b>{data.entry.duration / 3600}h</b>
+        <br />
         {data.entry.notes && `Notes: ${data.entry.notes}`}
       </p>
       <hr className="my-4" />
@@ -74,17 +87,7 @@ export default function EntryDetailsPage() {
             name="_action"
             value="switch_status"
           >
-            {data.entry.isSubmitted ? "Mark as pending" : "Mark as submitted"}
-          </button>
-        </Form>
-        <Form method="post">
-          <button
-            type="submit"
-            className="rounded bg-blue-500  py-2 px-4 text-white hover:bg-blue-600 focus:bg-blue-400"
-            name="_action"
-            value="delete"
-          >
-            Delete
+            {data.entry.isSubmitted ? "Mark as untracked" : "Mark as tracked"}
           </button>
         </Form>
       </div>
